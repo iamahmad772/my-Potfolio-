@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahmad Ali   — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name: projects, skills, and contact." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+  --bg: #0f1220;
+  --bg-alt: #14182b;
+  --text: #e9ecf1;
+  --muted: #b7c0d1;
+  --accent: #7c9cff;
+  --card: #1a2038;
+  --border: #2a3252;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section { padding: 72px 0; }
+.section.alt { background: var(--bg-alt); }
+
+h1, h2, h3 { margin: 0 0 16px; }
+h1 { font-size: clamp(28px, 5vw, 44px); }
+h2 { font-size: clamp(24px, 4vw, 32px); }
+h3 { font-size: clamp(18px, 3vw, 22px); }
+p { margin: 0 0 16px; color: var(--muted); }
+
+a { color: var(--accent); text-decoration: none; }
+img { max-width: 100%; display: block; border-radius: 12px; }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(15,18,32,0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo { font-weight: 800; font-size: 20px; color: var(--text); }
+.logo span { color: var(--accent); }
+.nav { display: flex; gap: 18px; align-items: center; }
+.nav a { color: var(--text); opacity: 0.9; }
+.nav a:hover { opacity: 1; }
+.nav button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* Hero */
+.hero { padding: 72px 0; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.subtitle { max-width: 54ch; }
+.hero-cta { display: flex; gap: 12px; margin: 18px 0; }
+.quick-facts {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 8px 0 0;
+  list-style: none;
+}
+.hero-image img { box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+border: 1px solid #ddd ;
+border-radius: 200px;
+padding: 5px;
+width: 3000px;}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn.primary {
+  background: var(--accent);
+  color: #0b1024;
+  border-color: transparent;
+}
+.btn.outline { background: transparent; }
+.btn.small { padding: 6px 10px; font-size: 14px; }
+
+/* Layout helpers */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 18px;
+  border-radius: 12px;
+}
+
+/* Projects */
+.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.project-content { padding: 14px; }
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.tags span {
+  background: rgba(124,156,255,0.18);
+  color: #cfe0ff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid rgba(124,156,255,0.3);
+}
+.links { display: flex; gap: 8px; margin-top: 8px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.skill-list li {
+  background: #151a30;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: #cbd3e6;
+}
+
+/* Contact */
+.contact-form { display: grid; gap: 14px; max-width: 720px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #12162a;
+  color: var(--text);
+  font: inherit;
+}
+input:focus, textarea:focus {
+  outline: 2px solid rgba(124,156,255,0.5);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  background: var(--bg);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.socials { display: flex; gap: 16px; margin-top: 16px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner, .two-col { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .skills { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .skills { grid-template-columns: 1fr; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background: var(--bg-alt);
+    padding: 12px;
+    border-left: 1px solid var(--border);
+    flex-direction: column;
+    width: 70%;
+  }
+  .menu-toggle { display: block; }
+}
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Ahmad<span>Ali</span></a>
+      <nav id="nav" class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+      <button class="menu-toggle" aria-label="Open menu" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Hi, I’m <span class="accent">Ahmad Ali</span></h1>
+        <p class="subtitle">I build clean, user-centric experiences. Focused on front-end development and UX.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn primary">View projects</a>
+          <a href="#contact" class="btn">Contact me</a>
+        </div>
+        <ul class="quick-facts">
+          <li>📍 Lahore, Pakistan</li>
+          <li>💼 Open to freelance</li>
+          <li>✉️ ahmad1565786@gmail.com</li>
+        </ul>
+      </div>
+      <div class="hero-image">
+        <img src="WhatsApp Image 2025-12-19 at 3.15.41 PM.jpeg" alt="Showcase image">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container two-col">
+      <div>
+        <h2>About</h2>
+        <p>
+          I’m a developer/designer who loves turning ideas into fast, accessible products.
+          I care about performance, clean code, and thoughtful design.
+        </p>
+        <p>
+          Currently exploring TypeScript, React, and design systems. Previously at XYZ Company,
+          shipped features used by thousands of users.
+        </p>
+      </div>
+      <div class="info-cards">
+        <div class="card">
+          <h3>What I do</h3>
+          <ul>
+            <li>Front-end development</li>
+            <li>UI/UX design</li>
+            <li>Prototyping & testing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Highlights</h3>
+          <ul>
+            <li>Performance optimization (Lighthouse 95+)</li>
+            <li>Accessibility-first approach (WCAG)</li>
+            <li>Cross-functional collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section alt">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="project-card">
+          <img src="https://via.placeholder.com/640x360.png?text=Project+1" alt="Project 1">
+          <div class="project-content">
+            <h3>Project One</h3>
+            <p>Responsive web app improving onboarding conversion by 28% through streamlined flows and microcopy.</p>
+            <div class="tags">
+              <span>React</span><span>TypeScript</span><span>CSS</span>
+            </div>
+            <div class="links">
+              <a href="#" class="btn small">Live</a>
+              <a href="#" class="btn small outline">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://via.placeholder.com/640x360.png?text=Project+2" alt="Project 2">
+          <div class="project-content">
+            <h3>Project Two</h3>
+            <p>Design system components documented with Storybook for consistent UI and faster delivery.</p>
+            <div class="tags">
+              <span>Storybook</span><span>Sass</span><span>Design</span>
+            </div>
+            <div class="links">
+              <a href="#" class="btn small">Case study</a>
+              <a href="#" class="btn small outline">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://via.placeholder.com/640x360.png?text=Project+3" alt="Project 3">
+          <div class="project-content">
+            <h3>Project Three</h3>
+            <p>Progressive web app with offline caching and fast load on 3G networks.</p>
+            <div class="tags">
+              <span>PWA</span><span>Workbox</span><span>Performance</span>
+            </div>
+            <div class="links">
+              <a href="#" class="btn small">Live</a>
+              <a href="#" class="btn small outline">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Development</h3>
+          <ul class="skill-list">
+            <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Node.js</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Design</h3>
+          <ul class="skill-list">
+            <li>Figma</li><li>Adobe XD</li><li>Design Systems</li><li>Prototyping</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <ul class="skill-list">
+            <li>Git</li><li>Storybook</li><li>Webpack/Vite</li><li>Jest</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section alt">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>If you’d like to collaborate or just say hello, reach out below.</p>
+      <form class="contact-form" action="https://formspree.io/f/your-id" method="POST">
+        <div class="form-row">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+        </div>
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="btn primary">Send</button>
+      </form>
+      <div class="socials">
+        <a href="#" aria-label="GitHub">GitHub</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="Twitter">Twitter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+      <a href="resume.pdf" class="btn small outline">Download resume</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

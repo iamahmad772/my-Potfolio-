@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .navbar{
+            padding: 15px;
+        }
+        .navbar ul{
+            display: flex;
+            list-style: none;
+            gap: 60px;
+            margin-left:60%;
+        }
+      .navbar ul li{
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+      }
+      .borderstyle{
+        background-color: aqua;
+        color: black;
+        padding: 5px ;
+        border: none;
+        border-radius:10px 10px;
+        font-size: 8px;
+        cursor: pointer;
+
+      }
+      .parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+      }
+      .chid{
+        margin-top: 150px;
+        margin-left: 70px;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li> Product Card</li>
+            <li class="borderstyle">Get Started</li>
+        </ul>
+    </nav>
+    <div class="parent">
+        <div class="chid">
+            <h3>You're Using</h3>
+            <h1> Free Lite Version of Template</h1><br>
+            <p>Please,purchase full version of the template to get all <br> sections, feactures and permission to remove footer credit. <br> <br></p>
+            <button>Purchase Now</button>
+        </div>
+    </div>
+
+    
+</body>
+</html>
